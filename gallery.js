@@ -40,6 +40,10 @@ refs.listGallery.addEventListener('click', onModalOpen);
 refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.overlay.addEventListener('click', onBackdropClick);
 
+function imgTegAttributes(src, alt) {
+  refs.originalImg.src = src;
+  refs.originalImg.alt = alt;
+}
 
 function onModalOpen(event) {
   event.preventDefault();
@@ -79,15 +83,14 @@ function onArrowKeyPress(event) {
     if (idx === -1) {
       return
     }
-    refs.originalImg.src = objectImages[idx].original;
-    refs.originalImg.alt = objectImages[idx].description;
+    imgTegAttributes(objectImages[idx].original, objectImages[idx].description);
   } else if (event.code === 'ArrowRight') {
     idx += 1;
     if (idx === objectImages.length-1) {
       return
     }
-    refs.originalImg.src = objectImages[idx].original;
-    refs.originalImg.alt = objectImages[idx].description;
+    imgTegAttributes(objectImages[idx].original, objectImages[idx].description);
   };
   
 };
+
