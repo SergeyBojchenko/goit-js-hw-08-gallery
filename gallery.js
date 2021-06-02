@@ -60,7 +60,7 @@ function onCloseModal() {
   window.removeEventListener('keydown', onArrowKeyPress);
   window.removeEventListener('keydown', onEscKeyPress);
   refs.backdrop.classList.remove('is-open');
-  refs.originalImg.src = '';
+  imgTegAttributes('', '');
 };
 
 function onBackdropClick(event) {
